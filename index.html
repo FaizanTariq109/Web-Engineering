@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Task 1</title>
+  </head>
+  <body>
+    <header>
+      <h1><center>Me Summed Up...</center></h1>
+      <nav>
+        <ul>
+          <li><a href="#aboutMe">About Me</a></li>
+          <li><a href="#favMovie">Favorite Movie</a></li>
+          <li><a href="#skills">My Skills</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#digitalSongs">Digital Library</a></li>
+          <li><a href="#form">Form</a></li>
+        </ul>
+      </nav>
+    </header>
+    <br /><br />
+    <main>
+      <section id="aboutMe">
+        <h3>About Me</h3>
+        <p>
+          A junior Software Engineering student passionate about technology and
+          eager to learn and grow personally and academically. Experienced in
+          teamwork, volunteer work, and collaborative projects. Seeking
+          opportunities to apply technical skills and contribute to innovative
+          solutions. A responsible and enthusiastic individual with a positive
+          approach to work.
+        </p>
+        <img src="me.png" alt="My Pic" width="200" height="250" />
+      </section>
+      <br /><br />
+      <section id="favMovie">
+        <h3>Favorite Movie</h3>
+        <p>My favorite movie is <b>12 Angry Men</b>.</p>
+        <p>
+          Never heard of it? Thought so, here you go check out its trailer...
+        </p>
+        <iframe
+          width="600"
+          height="300"
+          src="https://www.youtube.com/embed/_13J_9B5jEk"
+          title="12 Angry Men (1957) Trailer #1 | Movieclips Classic Trailers"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </section>
+      <br /><br />
+      <section id="skills">
+        <h3>My Skills</h3>
+        <p>I know some stuff like...</p>
+        <ul>
+          <li>Java</li>
+          <li>C/C++/C#</li>
+          <li>Haskell</li>
+          <li>Python</li>
+          <li>Unity Game Dev</li>
+          <li>Arduino Programming</li>
+        </ul>
+      </section>
+      <br /><br />
+      <section id="location">
+        <h3>Location</h3>
+        <div>
+          <button onclick="geolocator()">Click to get location</button>
+          <p id="paraGraph"></p>
+        </div>
+        <script>
+          let paraGraph = document.getElementById("paraGraph");
+          let user_loc = navigator.geolocation;
+          function geolocator() {
+            if (user_loc) {
+              user_loc.getCurrentPosition(success);
+            } else {
+              ("Your browser doesn't support geolocation API");
+            }
+          }
+          function success(data) {
+            let lat = data.coords.latitude;
+            let long = data.coords.longitude;
+            paraGraph.innerHTML = "Latitude: " + lat + "<br>Longitude: " + long;
+          }
+        </script>
+      </section>
+      <br /><br />
+      <section id="digitalSongs">
+        <h3>My Digital Library</h3>
+        <audio id="audioPlayer" controls>
+          <source src="PhirBhi.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <br /><br />
+        <button onclick="prevSong()">Prev</button>
+        <button onclick="nextSong()">Next</button>
+
+        <script>
+          // Array of audio file sources
+          var songs = ["PhirBhi.mp3", "TohPhir.mp3", "BhulaDena.mp3"];
+
+          var currentSongIndex = 0;
+          var audioPlayer = document.getElementById("audioPlayer");
+
+          function playSong(index) {
+            if (index >= 0 && index < songs.length) {
+              audioPlayer.src = songs[index];
+              audioPlayer.play();
+            }
+          }
+
+          function nextSong() {
+            currentSongIndex++;
+            if (currentSongIndex >= songs.length) {
+              currentSongIndex = 0; // Loop back to the first song
+            }
+            playSong(currentSongIndex);
+          }
+
+          function prevSong() {
+            currentSongIndex--;
+            if (currentSongIndex < 0) {
+              currentSongIndex = songs.length - 1; // Loop to the last song
+            }
+            playSong(currentSongIndex);
+          }
+        </script>
+      </section>
+      <br /><br />
+      <section id="form">
+        <h3>Form</h3>
+        <form id="contactForm">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required />
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="2" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <br /><br />
+    <footer>
+      <p>&copy; 2025 Web Task 1. All rights reserved</p>
+    </footer>
+  </body>
+</html>
