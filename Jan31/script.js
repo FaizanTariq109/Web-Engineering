@@ -16,10 +16,15 @@ let student = {
   age: "20",
   isStudent: true,
   registeredCourses: {
-    courses: {
+    course1: {
       title: "PF",
       isPassed: true,
     },
   },
 };
-console.log(student.registeredCourses.courses);
+let course2 = {
+  title: "OOP",
+  isPassed: true,
+};
+student["registeredCourses"]["course2"] = course2;
+console.log(student);
