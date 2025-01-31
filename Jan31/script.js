@@ -31,7 +31,15 @@ let course2 = {
 };
 student["registeredCourses"]["course2"] = course2;
 for (key in student) {
-  console.log(student[key]);
+  //console.log(student[key]);
 }
 //Object.keys(student);
-console.log(student.displayName());
+//let { name, isaStudent } = person1; //better way than keys
+
+//console.log(student.displayName());
+
+//let currentStudent = { ...person1 };
+student.prototype.semesterStart = true;
+student.prototype.greet = function () {
+  return `Hello ${this.name}`;
+};
