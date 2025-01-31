@@ -21,10 +21,17 @@ let student = {
       isPassed: true,
     },
   },
+  displayName: function () {
+    return this.name;
+  },
 };
 let course2 = {
   title: "OOP",
   isPassed: true,
 };
 student["registeredCourses"]["course2"] = course2;
-console.log(student);
+for (key in student) {
+  console.log(student[key]);
+}
+//Object.keys(student);
+console.log(student.displayName());
