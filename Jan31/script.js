@@ -16,8 +16,10 @@ let student = {
   age: "20",
   isStudent: true,
   registeredCourses: {
-    subject1: "PF",
-    subject2: "OOP",
+    courses: {
+      title: "PF",
+      isPassed: true,
+    },
   },
 };
-console.log(student.registeredCourses.subject1);
+console.log(student.registeredCourses.courses);
