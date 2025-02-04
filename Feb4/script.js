@@ -19,7 +19,27 @@ function findDuplicates(arr) {
 let namelss = (name) => "Hello";
 
 let printDup = (key, arr) => {
-    if(key.exists(arr))
-        console.log(key);//return krna hai multiple ko aik hi line me likhna hai
+  if (key.exists(arr)) console.log(key); //return krna hai multiple ko aik hi line me likhna hai
+};
+
+function counter() {
+  let count = 0;
+  return function () {
+    return count++;
+  };
 }
 
+let increment = counter();
+
+let counter1 = () => {
+  let count = 0;
+  return () => {
+    return count++;
+  };
+};
+
+let increment1 = counter1();
+
+function mul(...val) {
+  return val.reduce((val1, res) => res * val1, 1);
+}
