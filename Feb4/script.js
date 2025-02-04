@@ -43,3 +43,10 @@ let increment1 = counter1();
 function mul(...val) {
   return val.reduce((val1, res) => res * val1, 1);
 }
+
+async function mul2(...val) {
+  await val1.openfile(file);
+  return val.reduce((val1, res) => res * val1, 1);
+}
+
+myTimeout = setTimeout(mul2, 2000);
