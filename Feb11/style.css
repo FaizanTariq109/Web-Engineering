@@ -21,6 +21,21 @@ body {
   flex-direction: column;
 }
 
+#bodyName {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px; /* Reduce margin */
+  margin-bottom: 1px; /* Reduce space between name and skills */
+}
+
+#skills {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1; /* Remove extra space */
+}
+
 /* Main content should push the footer down */
 body > *:not(footer) {
   flex: 1;
@@ -200,4 +215,41 @@ footer {
   .dropdown-menu {
     display: none;
   }
+}
+/* Cursor should blink at the end */
+.cursor {
+  font-weight: bold;
+  font-size: 2rem;
+  color: #ff4757; /* Red shade */
+  animation: blink 0.8s infinite;
+}
+
+/* Blinking effect for "_" */
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Stylish skill text */
+#skill-text {
+  color: #008793; /* Teal color */
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Alternate colors dynamically */
+#skill-text:nth-child(1) {
+  color: #ff4757; /* Red */
+}
+#skill-text:nth-child(2) {
+  color: #1a2a6c; /* Dark Blue */
+}
+#skill-text:nth-child(3) {
+  color: #0056b3; /* Light Blue */
+}
+
+/* Dark Mode Skill Text */
+.dark-mode #skill-text {
+  color: #00d2ff; /* Neon Blue */
 }

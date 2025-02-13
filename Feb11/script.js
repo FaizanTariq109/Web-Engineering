@@ -10,6 +10,44 @@ document.addEventListener("DOMContentLoaded", () => {
       dropdownMenu.style.display === "block" ? "none" : "block";
   });
 
+  // Typewriter Effect for Skills
+  const skillsElement = document.getElementById("skill-text"); // Only skill part
+  const skills = ["Developer", "Designer", "Solver"];
+  let skillIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeEffect() {
+    let currentSkill = skills[skillIndex];
+
+    // Update skill text without affecting "I am"
+    skillsElement.textContent = currentSkill.slice(0, charIndex);
+
+    // Cycle through colors dynamically
+    const colors = ["#ff4757", "#1a2a6c", "#0056b3"];
+    skillsElement.style.color = colors[skillIndex];
+
+    if (!isDeleting) {
+      charIndex++;
+      if (charIndex > currentSkill.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1000);
+        return;
+      }
+    } else {
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        skillIndex = (skillIndex + 1) % skills.length;
+      }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+  }
+
+  typeEffect(); // Start typing effect
+
+  // Dark Mode Button Scroll Effect
   const darkModeButton = document.getElementById("darkModeToggle");
 
   window.addEventListener("scroll", () => {
@@ -34,10 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.toggle("dark-mode");
 
     // Change button icon
-    if (body.classList.contains("dark-mode")) {
-      darkModeToggle.textContent = "🌙"; // Moon Icon
-    } else {
-      darkModeToggle.textContent = "🌞"; // Sun Icon
-    }
+    darkModeToggle.textContent = body.classList.contains("dark-mode")
+      ? "🌙"
+      : "🌞";
   });
 });
