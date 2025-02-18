@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <title>Faizan's Navbar</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <!-- Left Side: Hamburger + Name -->
+        <div class="nav-left">
+          <div class="menu-toggle" id="menuToggle">&#9776;</div>
+          <div class="username">Faizan Tariq</div>
+        </div>
+
+        <!-- Right Side: Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#offer">Offer</a></li>
+          <li><a href="#project">Project</a></li>
+          <li><a href="#leaveWord">Leave a Word</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <ul class="dropdown-menu" id="dropdownMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#offer">Offer</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#leaveWord">Leave a Word</a></li>
+      </ul>
+    </header>
+    <body>
+      <p id="bodyName">Faizan Tariq</p>
+      <h1 id="skills">
+        I am <span id="skill-text"></span><span class="cursor">_</span>
+      </h1>
+    </body>
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle" class="dark-mode-btn">🌞</button>
+
+    <footer>
+      <p>&copy; 2025 Faizan Tariq</p>
+    </footer>
+  </body>
+</html>
